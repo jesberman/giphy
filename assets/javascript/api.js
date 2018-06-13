@@ -10,9 +10,11 @@ var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=xDn761pgiJE7K6XPZyH
 for (i=0; i < 5; i++) {
 
     var buttons = $('<button>'+ topics[i] + '</button>') 
-    buttons.appendTo('#topics'); 
     
     buttons.addClass("main-buttons");
+
+    buttons.appendTo('#topics'); 
+    
 
 }
 
@@ -21,10 +23,8 @@ for (i=0; i < 5; i++) {
 
 
 
+$("#topics").on("click",".main-buttons" , function() {
 
-
-
-$('.main-buttons').on('click', function () {
 
     var searchTerm = $(this).text();
 
@@ -52,7 +52,14 @@ $('.main-buttons').on('click', function () {
             gif.attr("state", "still");
 
             gif.appendTo("#gifs");
-        
+
+
+            //gif.append("hello", gifData[i].data.rating.val());
+
+
+
+
+
         }
 
      console.log(response);
@@ -110,19 +117,24 @@ $("#add-animal").on("click", function(event) {
     //topics=topics + a;
 
     var b = $("#animal-input").val().trim();
-    topics=topics + b;
+    //topics=topics + b;
 
-    var c = "<button>" + b + "</button>";
+    //var c = "<button>" + b + "</button>";
 
 
-
+    topics.push(b);
     //$("#topics").append(a);
 
     //$("#topics").append(b);
 
+    var c = $('<button>'+ b + '</button>') 
+
+    $(c).addClass("main-buttons");
+
     $("#topics").append(c);
 
 
+    //topics.push(c);
 
 //    event.preventDefault();
 
@@ -131,6 +143,8 @@ $("#add-animal").on("click", function(event) {
 //    topics.push(newAnimal);
 //    renderButtons();
 
+    console.log(topics);
+    console.log(topics[1]);
 
 });
 
