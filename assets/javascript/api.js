@@ -5,7 +5,7 @@ var topics = ["dog", "cat", "wolf", "horse", "rabbit"];
 var i;
 
 
-var queryURL = "http://api.giphy.com/v1/gifs/search?api_key=xDn761pgiJE7K6XPZyHErV3h1V4NNmgx&limit=10";
+var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=xDn761pgiJE7K6XPZyHErV3h1V4NNmgx&limit=10";
 
 for (i=0; i < 5; i++) {
 
