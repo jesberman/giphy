@@ -44,19 +44,32 @@ $("#topics").on("click",".main-buttons" , function() {
 
          for (i=0; i < 10; i++) {
 
-
+            var div = $("<div>");
             var gif = $('<img>');
+            
             gif.attr("src", gifData[i].images.fixed_height_still.url);
             gif.attr("animated", gifData[i].images.fixed_height_downsampled.url);
             gif.attr("still", gifData[i].images.fixed_height_still.url);
             gif.attr("state", "still");
 
-            gif.appendTo("#gifs");
+
+            div.append(gif);
 
 
-            //gif.append("hello", gifData[i].data.rating.val());
+            var title2 = ("title",gifData[i].title);
+            div.append("<div>" + "Title: " + title2 + "</div");
+
+            div.append("<div>"+"Rating: " + rating2 + "</div");
+
+            var rating2 = ("rating",gifData[i].rating);
+
+            div.appendTo("#gifs");
 
 
+            div.css("float" , "left");
+            div.css("border-style", "solid");
+            div.css("border-width", "5px");
+            div.css("border-color" , "black");
 
 
 
@@ -79,7 +92,7 @@ $("#topics").on("click",".main-buttons" , function() {
 
 $("#gifs").on("click", "img", function() {
     console.log("It worked!");
-    //animationEnd($this);
+
     console.log($(this).attr("state"));
 
     if ($(this).attr("state") === "animated") {
@@ -107,25 +120,18 @@ $("#gifs").on("click", "img", function() {
 $("#add-animal").on("click", function(event) {
 
 
-    //var newAnimal = $('<button>'+ "#animalInput".text + '</button>');
-    //alert("working");
-    //alert(newAnimal);
+
 
     event.preventDefault();
 
-    //var a = "<button>" + "Hello" + "</button>";
-    //topics=topics + a;
+
 
     var b = $("#animal-input").val().trim();
-    //topics=topics + b;
 
-    //var c = "<button>" + b + "</button>";
 
 
     topics.push(b);
-    //$("#topics").append(a);
 
-    //$("#topics").append(b);
 
     var c = $('<button>'+ b + '</button>') 
 
@@ -134,21 +140,13 @@ $("#add-animal").on("click", function(event) {
     $("#topics").append(c);
 
 
-    //topics.push(c);
 
-//    event.preventDefault();
-
-//    var newAnimal = $("#animal-input").val().trim();
-
-//    topics.push(newAnimal);
-//    renderButtons();
 
     console.log(topics);
     console.log(topics[1]);
 
 });
 
-//renderButtons();
 
 
 
